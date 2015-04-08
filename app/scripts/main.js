@@ -1,5 +1,5 @@
 var Drillings = function(callback) {
-  context = this;
+  var context = this;
 
   Papa.parse("/drillings.csv", {
     download: true,
@@ -26,6 +26,30 @@ Drillings.prototype.getDataForYear = function(year) {
   return filteredData;
 }
 
+var Clock = function() {
+  this.year = 1860;
+  this.maxYear = 2012;
+  this.minYear = 2012;
+  this.timeout = null;
+  $("#year").val(this.year);
+}
+
+Clock.prototype.start = function() {
+  var context = this;
+  console.log("tic");
+  this.timeout = setTimeout(function() {
+    var year = parseInt($("#year").val());
+    var newYear = year + 1;
+    $("#year").val(newYear);
+    placeMarkers(window.drillings.getDataForYear(newYear));
+    context.start()
+  }, 500)
+}
+
+Clock.prototype.stop = function() {
+  clearTimeout(this.timeout);
+}
+
 function placeMarkers(drillings) {
   for (var i = 0; i < window.markers.length; i++) {
     window.markers[i].setMap(null);
@@ -48,11 +72,15 @@ function initialize() {
   window.map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
   window.markers = new Array;
   window.drillings = new Drillings(function() {
-    placeMarkers(window.drillings.getData())
+    placeMarkers(window.drillings.getDataForYear(1860))
   });
 
-  $("#year").on("change", function() {
-    placeMarkers(window.drillings.getDataForYear(this.value))
+  window.clock = new Clock;
+  $("#play").on("click", function() {
+    window.clock.start();
+  })
+  $("#stop").on("click", function() {
+    window.clock.stop();
   })
 }
 
