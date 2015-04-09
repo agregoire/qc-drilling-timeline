@@ -36,12 +36,11 @@ var Clock = function() {
 
 Clock.prototype.start = function() {
   var context = this;
-  console.log("tic");
   this.timeout = setTimeout(function() {
     var year = parseInt($("#year").val());
     var newYear = year + 1;
     $("#year").val(newYear);
-    placeMarkers(window.drillings.getDataForYear(newYear));
+    window.map.placeMarkers(window.drillings.getDataForYear(newYear));
     context.start()
   }, 500)
 }
@@ -50,29 +49,34 @@ Clock.prototype.stop = function() {
   clearTimeout(this.timeout);
 }
 
-function placeMarkers(drillings) {
-  for (var i = 0; i < window.markers.length; i++) {
-    window.markers[i].setMap(null);
+var Map = function() {
+  var mapOptions = {
+    center: { lat: 47.8083333, lng: -69.6280556},
+    zoom: 6
+  };
+
+  this.map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  this.markers = new Array;
+}
+
+Map.prototype.placeMarkers = function(data) {
+  for (var i = 0; i < this.markers.length; i++) {
+    this.markers[i].setMap(null);
   }
 
-  for (var i = drillings.length - 1; i >= 0; i--) {
-    window.markers.push(new google.maps.Marker({
-      position: new google.maps.LatLng(drillings[i].latitude,drillings[i].longitude),
-      map: window.map,
+  for (var i = data.length - 1; i >= 0; i--) {
+    this.markers.push(new google.maps.Marker({
+      position: new google.maps.LatLng(data[i].latitude,data[i].longitude),
+      map: window.map.map,
       title:"Drilling !"
     }));
   };
 }
 
 function initialize() {
-  var mapOptions = {
-    center: { lat: 47.8083333, lng: -69.6280556},
-    zoom: 6
-  };
-  window.map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-  window.markers = new Array;
+  window.map = new Map;
   window.drillings = new Drillings(function() {
-    placeMarkers(window.drillings.getDataForYear(1860))
+    window.map.placeMarkers(window.drillings.getDataForYear(1860))
   });
 
   window.clock = new Clock;
