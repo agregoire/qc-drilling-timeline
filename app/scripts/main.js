@@ -1,20 +1,18 @@
-window.App = {
-  init: function() {
-    window.map = new Map;
-    window.drillings = new Drillings(function() {
-      window.map.placeMarkers(window.drillings.getDataForYear(1860))
-    });
+/*global Qcdrillingtimeline, $*/
 
-    window.clock = new Clock;
-    $("#play").on("click", function() {
-      window.clock.start();
-    })
-    $("#stop").on("click", function() {
-      window.clock.stop();
-    })
+
+window.QcDrillingTimeline = {
+  Models: {},
+  Collections: {},
+  Views: {},
+  Routers: {},
+  init: function () {
+    'use strict';
+    new this.Views.Map;
   }
-}
+};
 
 $(document).ready(function () {
-    App.init();
+    'use strict';
+    QcDrillingTimeline.init();
 });
