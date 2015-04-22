@@ -1,14 +1,11 @@
 /*global Qcdrillingtimeline, $*/
 
-
 window.QcDrillingTimeline = {
-  Models: {},
-  Collections: {},
-  Views: {},
-  Routers: {},
   init: function () {
     'use strict';
-    new this.Views.Map;
+    this.clock = new this.Views.Clock({el: $("#clock")});
+    this.map = new this.Views.Map;
+    this.markersView = new this.Views.Markers({clock: this.clock.model});
   }
 };
 

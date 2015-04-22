@@ -1,6 +1,6 @@
 html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
 
-#controls {
+#clock {
   width: 100%;
   height: 50px;
   background-color: white;
