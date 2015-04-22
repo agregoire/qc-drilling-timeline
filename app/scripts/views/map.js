@@ -1,4 +1,4 @@
-/*global QcDrillingTimeline, Backbone, JST*/
+/*global QcDrillingTimeline, Backbone, google*/
 
 QcDrillingTimeline.Views = QcDrillingTimeline.Views || {};
 

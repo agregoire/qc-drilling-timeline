@@ -1,4 +1,4 @@
-/*global QcDrillingTimeline, Backbone, JST*/
+/*global QcDrillingTimeline, Backbone*/
 
 QcDrillingTimeline.Views = QcDrillingTimeline.Views || {};
 
@@ -8,29 +8,28 @@ QcDrillingTimeline.Views = QcDrillingTimeline.Views || {};
   QcDrillingTimeline.Views.Markers = Backbone.View.extend({
     initialize: function(options) {
       var self = this;
-      this.markerViews = new Array;
+      this.markerViews = [];
       
-      this.clock = clock;
       this.listenTo(options.clock, 'change', this.render);
       
-      this.collection = new QcDrillingTimeline.Collections.Markers;
+      this.collection = new QcDrillingTimeline.Collections.Markers();
 
       this.collection.fetch({
-        success: function() { self.render() }
+        success: function() { self.render(); }
       });
     },
     render: function() {
       var self = this;
-      if (this.markerViews.length == 0) {
+      if (this.markerViews.length === 0) {
         this.collection.each(function(marker){
           var markerView = new QcDrillingTimeline.Views.Marker({model: marker});
           self.markerViews.push(markerView);
           markerView.render();
-        })
+        });
       } else {
         for (var i = this.markerViews.length - 1; i >= 0; i--) {
           this.markerViews[i].render();
-        };
+        }
       }
     }
   });

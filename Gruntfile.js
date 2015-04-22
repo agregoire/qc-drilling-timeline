@@ -199,6 +199,7 @@ module.exports = function (grunt) {
                         '*.{ico,txt}',
                         'images/{,*/}*.{webp,gif}',
                         'styles/fonts/{,*/}*.*',
+                        'drillings.json',
                     ]
                 }, {
                     src: 'node_modules/apache-server-configs/dist/.htaccess',

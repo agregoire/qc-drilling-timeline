@@ -1,4 +1,4 @@
-/*global QcDrillingTimeline, Backbone, JST*/
+/*global QcDrillingTimeline, Backbone*/
 
 QcDrillingTimeline.Views = QcDrillingTimeline.Views || {};
 
@@ -8,14 +8,14 @@ QcDrillingTimeline.Views = QcDrillingTimeline.Views || {};
   QcDrillingTimeline.Views.Clock = Backbone.View.extend({
     template: JST['app/scripts/templates/clock.ejs'],
     initialize: function () {
-      this.model = new QcDrillingTimeline.Models.Clock;
+      this.model = new QcDrillingTimeline.Models.Clock();
       this.listenTo(this.model, 'change', this.render);
       this.render();
     },
     events: {
-      "click #play": "startClock",
-      "click #stop": "stopClock",
-      "change #year": "changeYear"
+      'click #play': 'startClock',
+      'click #stop': 'stopClock',
+      'change #year': 'changeYear'
     },
     startClock: function() {
       this.model.start();
@@ -24,7 +24,7 @@ QcDrillingTimeline.Views = QcDrillingTimeline.Views || {};
       this.model.stop();
     },
     changeYear: function() {
-      this.model.set("year", parseInt($("#year").val()));
+      this.model.set('year', parseInt($('#year').val()));
     },
     render: function () {
       this.$el.html(this.template(this.model.toJSON()));

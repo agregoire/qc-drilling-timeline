@@ -1,4 +1,4 @@
-/*global QcDrillingTimeline, Backbone, JST*/
+/*global QcDrillingTimeline, Backbone, google*/
 
 QcDrillingTimeline.Views = QcDrillingTimeline.Views || {};
 
@@ -13,18 +13,18 @@ QcDrillingTimeline.Views = QcDrillingTimeline.Views || {};
     },
 
     render: function () {
-      if (this.marker == null) {
+      if (this.marker === null) {
         this.marker = new google.maps.Marker({
-          position: new google.maps.LatLng(this.model.get("latitude"), this.model.get("longitude")),
+          position: new google.maps.LatLng(this.model.get('latitude'), this.model.get('longitude')),
           map: this.map
-        })
-      };
+        });
+      }
 
       if (this.model.visible()) {
         this.show();
       } else {
         this.hide();
-      };
+      }
 
       return this;
     },
@@ -32,7 +32,7 @@ QcDrillingTimeline.Views = QcDrillingTimeline.Views || {};
       this.marker.setMap(null);
     },
     show: function() {
-      if (this.marker.getMap() == null) {
+      if (this.marker.getMap() === null) {
         this.marker.setMap(this.map);
       }
     }
