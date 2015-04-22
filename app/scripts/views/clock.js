@@ -14,13 +14,17 @@ QcDrillingTimeline.Views = QcDrillingTimeline.Views || {};
     },
     events: {
       "click #play": "startClock",
-      "click #stop": "stopClock"
+      "click #stop": "stopClock",
+      "change #year": "changeYear"
     },
     startClock: function() {
       this.model.start();
     },
     stopClock: function() {
       this.model.stop();
+    },
+    changeYear: function() {
+      this.model.set("year", parseInt($("#year").val()));
     },
     render: function () {
       this.$el.html(this.template(this.model.toJSON()));

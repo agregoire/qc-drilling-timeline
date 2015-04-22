@@ -15,16 +15,16 @@ QcDrillingTimeline.Views = QcDrillingTimeline.Views || {};
     render: function () {
       if (this.marker == null) {
         this.marker = new google.maps.Marker({
-          position: new google.maps.LatLng(this.model.get("latitude"),this.model.get("longitude")),
+          position: new google.maps.LatLng(this.model.get("latitude"), this.model.get("longitude")),
           map: this.map
         })
+      };
+
+      if (this.model.visible()) {
+        this.show();
       } else {
-        if (this.model.visible()) {
-          this.show();
-        } else {
-          this.hide();
-        }
-      }
+        this.hide();
+      };
 
       return this;
     },
