@@ -2,7 +2,7 @@
 <html lang="">
     <head>
         <meta charset="utf-8">
-        <title>Qcdrillingtimeline</title>
+        <title>Carte animée des forages au Québec</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -18,18 +18,29 @@
 
 
         <div id="map-canvas"></div>
-        <div id="clock">
+        <div id="panel">
+            <div class="half">
+                <h1>Carte animée des forages au Québec</h1>
+                <div id="clock"></div>
+            </div>
+            <div class="half">
+                <p>Cette carte animée montre les forages actifs par année au Québec de 1860 à 2013.</p>
+                <p>Les données proviennent du <a href="http://sigpeg.mrn.gouv.qc.ca/gpg/classes/igpg">Système d'information géoscientifique pétrolier et gazier</a> du Ministère de l'énergie et des ressources naturelles du Québec.</p>
+                <p>Ce projet se base sur <a href="http://jhroy.ca/2013/04/960-forages/">un dossier assemblé par Jean-Hugues Roy en 2013</a>.</p>
+                <p>Lire mon <a href="#">billet à propos de ce projet</a>.</p>
+            </div>
         </div>
 
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-37129932-2', 'auto');
+          ga('send', 'pageview');
+
         </script>
 
         <!-- build:js scripts/vendor.js -->

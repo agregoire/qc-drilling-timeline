@@ -9,7 +9,7 @@ QcDrillingTimeline.Views = QcDrillingTimeline.Views || {};
     id: 'map-canvas',
     initialize: function () {
       var mapOptions = {
-        center: { lat: 47.8083333, lng: -69.6280556},
+        center: { lat: 47.248242, lng: -70.263062},
         zoom: 6
       };
       this.map = new google.maps.Map(document.getElementById(this.id), mapOptions);

@@ -24,7 +24,7 @@ QcDrillingTimeline.Views = QcDrillingTimeline.Views || {};
       this.model.stop();
     },
     changeYear: function() {
-      this.model.set('year', parseInt($('#year').val()));
+      this.model.set('year', parseInt($('#year').html()));
     },
     render: function () {
       this.$el.html(this.template(this.model.toJSON()));
