@@ -10,10 +10,12 @@ QcDrillingTimeline.Models = QcDrillingTimeline.Models || {};
       'year': 1860,
       'maxYear': 2015,
       'minYear': 1860,
-      'timeout': null
+      'timeout': null,
+      'running': false
     },
     start: function() {
       var self = this;
+      this.set('running', true);
 
       if (this.get('year') < this.get('maxYear')) {
         this.timeout = setTimeout(function() {
@@ -23,6 +25,7 @@ QcDrillingTimeline.Models = QcDrillingTimeline.Models || {};
       }
     },
     stop: function() {
+      this.set('running', false);
       clearTimeout(this.timeout);
     }
 

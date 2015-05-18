@@ -13,15 +13,15 @@ QcDrillingTimeline.Views = QcDrillingTimeline.Views || {};
       this.render();
     },
     events: {
-      'click #play': 'startClock',
-      'click #stop': 'stopClock',
+      'click #play': 'toggleClock',
       'change #year': 'changeYear'
     },
-    startClock: function() {
-      this.model.start();
-    },
-    stopClock: function() {
-      this.model.stop();
+    toggleClock: function() {
+      if (this.model.get("running") === true) {
+        this.model.stop();
+      } else {
+        this.model.start();
+      }
     },
     changeYear: function() {
       this.model.set('year', parseInt($('#year').html()));

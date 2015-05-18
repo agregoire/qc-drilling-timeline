@@ -1,3 +1,9 @@
-<div id="year"><%= year %></div>
-<button name="play" id="play">Démarrer</button>
-<button name="stop" id="stop">Arrêter</button>
+<span id="year"><%= year %></span>
+<button name="play" id="play"
+ class="<% if (running) { %>running<% } else { %>stopped<% } %>">
+  <% if (running) { %>
+  Arrêter
+  <% } else { %>
+  Démarrer
+  <% } %>
+</button>
