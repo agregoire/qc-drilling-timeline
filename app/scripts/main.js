@@ -10,7 +10,7 @@ QcDrillingTimeline = {
   resizeMap: function() {
     var panelHeight = document.getElementById('panel').clientHeight;
     var windowHeight = $(window).height();
-    $("#map-canvas").css("height", (windowHeight - panelHeight) + "px");
+    $("#map-canvas").css("height", (windowHeight - panelHeight) + "px").css("top", panelHeight + "px");
   }
 };
 
