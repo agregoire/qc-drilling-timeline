@@ -6,6 +6,7 @@ QcDrillingTimeline = {
     this.clock = new this.Views.Clock({el: $('#clock')});
     this.map = new this.Views.Map();
     this.markersView = new this.Views.Markers({clock: this.clock.model});
+    this.slider = new this.Views.Slider({clock: this.clock.model});
   },
   resizeMap: function() {
     var panelHeight = document.getElementById('panel').clientHeight;

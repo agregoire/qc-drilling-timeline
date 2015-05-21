@@ -10,10 +10,6 @@ QcDrillingTimeline.Views = QcDrillingTimeline.Views || {};
     initialize: function () {
       this.model = new QcDrillingTimeline.Models.Clock();
       this.listenTo(this.model, 'change', this.render);
-      $("#slider").slider({
-        max: this.model.get('maxYear'),
-        min: this.model.get('minYear')
-      });
       this.render();
     },
     events: {
@@ -27,11 +23,13 @@ QcDrillingTimeline.Views = QcDrillingTimeline.Views || {};
         this.model.start();
       }
     },
+    stopClock: function() {
+      this.model.stop();
+    },
     changeYear: function() {
       this.model.set('year', parseInt($('#year').html()));
     },
     render: function () {
-      $("#slider").slider("value", this.model.get('year'));
       this.$el.html(this.template(this.model.toJSON()));
     }
   });
