@@ -74,3 +74,7 @@ h2 {
 .ui-slider-pips [class*=ui-slider-pip-selected] {
   color: blue;
 }
+
+.info-window h1, .info-window h2 {
+  text-align: left;
+}
