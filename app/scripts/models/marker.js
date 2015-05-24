@@ -9,6 +9,14 @@ QcDrillingTimeline.Models = QcDrillingTimeline.Models || {};
     localStorage: new Store('qc-drilling-timeline'),
     visible: function() {
       var currentYear = QcDrillingTimeline.clock.model.get('year');
+      if (currentYear >= this.get('start')) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    active: function() {
+      var currentYear = QcDrillingTimeline.clock.model.get('year');
       if ((currentYear >= this.get('start')) && (currentYear <= this.get('end'))) {
         return true;
       } else {
