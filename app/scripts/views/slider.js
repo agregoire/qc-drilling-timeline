@@ -10,7 +10,7 @@ QcDrillingTimeline.Views = QcDrillingTimeline.Views || {};
       var self = this;
       this.model = options.clock;
 
-      $("#slider")
+      $('#slider')
         .slider({
           max: this.model.get('maxYear'),
           min: this.model.get('minYear'),
@@ -20,14 +20,14 @@ QcDrillingTimeline.Views = QcDrillingTimeline.Views || {};
             self.render();
           }
         })
-        .slider("pips", {
+        .slider('pips', {
           step: 5,
-          rest: "label"
+          rest: 'label'
         });
       this.listenTo(this.model, 'change', this.render);
     },
     render: function () {
-      $("#slider").slider("value", this.model.get('year'));
+      $('#slider').slider('value', this.model.get('year'));
     }
   });
 })();

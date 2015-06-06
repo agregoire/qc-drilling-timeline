@@ -61,7 +61,7 @@ QcDrillingTimeline.Views = QcDrillingTimeline.Views || {};
       var contentHeader = '<div class="info-window"><h1>' + this.model.get('name') + '</h1>' +
                           '<h2>Puits numéro ' + this.model.get('number') + '<br>' +
                           this.model.get('company') + '</h2>';
-      var contentYear = "";
+      var contentYear = '';
 
       if (this.model.get('start') === this.model.get('end')) {
         contentYear = '<p>Année de forage: ' + this.model.get('start') + '</p>';

@@ -17,7 +17,7 @@ QcDrillingTimeline.Views = QcDrillingTimeline.Views || {};
       'change #year': 'changeYear'
     },
     toggleClock: function() {
-      if (this.model.get("running") === true) {
+      if (this.model.get('running') === true) {
         this.model.stop();
       } else {
         this.model.start();
