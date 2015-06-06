@@ -9,7 +9,6 @@ QcDrillingTimeline.Views = QcDrillingTimeline.Views || {};
     initialize: function () {
       this.marker = null;
       this.infoWindow = null;
-      this.listenTo(this.model, 'change', this.render);
       this.map = QcDrillingTimeline.map.map;
     },
 
@@ -27,29 +26,26 @@ QcDrillingTimeline.Views = QcDrillingTimeline.Views || {};
       return this;
     },
     activeIcon: function() {
-      var icon = {
+      return {
         path: google.maps.SymbolPath.CIRCLE,
         fillOpacity: 1.0,
         fillColor: '#ff0000',
         strokeOpacity: 1.0,
         strokeColor: '#000000',
         strokeWeight: 1.0, 
-        scale: 7 //pixels
+        scale: 7, //pixels
       };
-      return icon;
     },
     inactiveIcon: function() {
-      var icon = {
+      return {
         path: google.maps.SymbolPath.CIRCLE,
         fillOpacity: 0.7,
         fillColor: '#aaaaaa',
         strokeOpacity: 0.7,
         strokeColor: '#555555',
         strokeWeight: 1.0, 
-        scale: 5 //pixels
+        scale: 5, //pixels
       };
-      return icon;
-
     },
     buildMarker: function() {
       var self = this;
@@ -85,20 +81,26 @@ QcDrillingTimeline.Views = QcDrillingTimeline.Views || {};
       });
     },
     hide: function() {
-      this.marker.setMap(null);
+      this.marker.setVisible(false);
     },
     show: function() {
       if (this.marker.getMap() === null) {
         this.marker.setMap(this.map);
       }
 
+      if (this.marker.getVisible() === false) {
+        this.marker.setVisible(true);
+      }
+
       if (this.model.active()) {
-        if (this.marker.getIcon().fillColor !== this.activeIcon.fillColor) {
+        if (this.marker.getIcon().fillColor === this.inactiveIcon().fillColor) {
           this.marker.setIcon(this.activeIcon());
+          this.marker.setZIndex(google.maps.Marker.MAX_ZINDEX + 1);
         }
       } else {
-        if (this.marker.getIcon().fillColor !== this.inactiveIcon.fillColor) {
+        if (this.marker.getIcon().fillColor === this.activeIcon().fillColor) {
           this.marker.setIcon(this.inactiveIcon());
+          this.marker.setZIndex(100);
         }
       }
     }

@@ -7,7 +7,7 @@ QcDrillingTimeline.Collections = QcDrillingTimeline.Collections || {};
 
   QcDrillingTimeline.Collections.Markers = Backbone.Collection.extend({
     model: QcDrillingTimeline.Models.Marker,
-    url: '/drillings.json'
+    url: 'drillings.json'
   });
 
 })();

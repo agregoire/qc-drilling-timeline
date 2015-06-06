@@ -5407,7 +5407,7 @@
     "longitude":-72.678444,
     "company":"Albert Bédard",
     "start":"1958",
-    "end":"1957"
+    "end":"1958"
   },
   {
     "number":"B174",
@@ -6177,7 +6177,7 @@
     "longitude":-73.642361,
     "company":"Canadian LongYear Ltd.",
     "start":"1966",
-    "end":"1965"
+    "end":"1966"
   },
   {
     "number":"B251",
@@ -8266,8 +8266,8 @@
     "latitude":48.848111,
     "longitude":-64.778639,
     "company":"Foragaz Inc.",
-    "start":"0",
-    "end":"0"
+    "start":"n.d.",
+    "end":"n.d."
   },
   {
     "number":"C140",
