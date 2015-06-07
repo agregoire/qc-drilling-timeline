@@ -8,7 +8,7 @@ QcDrillingTimeline.Models = QcDrillingTimeline.Models || {};
   QcDrillingTimeline.Models.Clock = Backbone.Model.extend({
     defaults: {
       'year': 1860,
-      'maxYear': 2015,
+      'maxYear': 2013,
       'minYear': 1860,
       'timeout': null,
       'running': false
@@ -22,6 +22,8 @@ QcDrillingTimeline.Models = QcDrillingTimeline.Models || {};
           self.set('year', self.get('year') + 1);
           self.start();
         }, 500);
+      } else {
+        this.set('running', false);
       }
     },
     stop: function() {
