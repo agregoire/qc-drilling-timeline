@@ -22,6 +22,7 @@ QcDrillingTimeline.Views = QcDrillingTimeline.Views || {};
       } else {
         this.model.start();
       }
+      return false;
     },
     stopClock: function() {
       this.model.stop();

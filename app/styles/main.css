@@ -57,18 +57,21 @@ h2 {
 #year {
   font-size: 2em;
   font-weight: bold;
+  width: 2em;
+  float: left;
 }
 
 #slider {
-  width: 85%;
+  width: 88%;
   float: right;
   margin-top: 15px;
   margin-right: 2%;
 }
 
 #clock {
-  width: 12%;
+  width: 8%;
   float: left;
+  margin-top: 0.5em;
 }
 
 .ui-slider-pips [class*=ui-slider-pip-selected] {
@@ -77,4 +80,25 @@ h2 {
 
 .info-window h1, .info-window h2 {
   text-align: left;
+}
+
+a#play {
+  width: 2em;
+  height: 2em;
+  display: block;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  float: left;
+  margin-left: 1em;
+}
+
+a#play.stopped {
+  background: url('../images/play.png');
+  background-image: url('../images/play.svg'), none;
+}
+
+a#play.running {
+  background: url('../images/pause.png');
+  background: url('../images/pause.svg'), none;
 }
