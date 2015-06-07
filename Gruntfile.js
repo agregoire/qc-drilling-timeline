@@ -203,6 +203,7 @@ module.exports = function (grunt) {
                         'images/{,*/}*.{webp,gif}',
                         'styles/fonts/{,*/}*.*',
                         'drillings.json',
+                        'favicon.ico'
                     ]
                 }, {
                     src: 'node_modules/apache-server-configs/dist/.htaccess',
