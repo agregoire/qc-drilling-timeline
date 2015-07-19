@@ -161,10 +161,9 @@ module.exports = function (grunt) {
             dist: {
                 files: {
                     '<%= yeoman.dist %>/styles/main.css': [
-                        '.tmp/styles/{,*/}*.css',
                         '<%= yeoman.app %>/bower_components/jquery-ui/themes/base/jquery-ui.css',
                         '<%= yeoman.app %>/bower_components/jquery-ui-slider-pips/dist/jquery-ui-slider-pips.css',
-                        '<%= yeoman.app %>/styles/reset.css',
+                        '<%= yeoman.app %>/bower_components/bootstrap/dist/css/bootstrap.css',
                         '<%= yeoman.app %>/styles/main.css'
                     ]
                 }

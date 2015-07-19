@@ -5,11 +5,12 @@
         <title>Carte animée des forages au Québec</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link rel="icon" href="favicon.ico" type="image/x-icon" />
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="bower_components/jquery-ui/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="bower_components/jquery-ui-slider-pips/dist/jquery-ui-slider-pips.css">
-        <link rel="stylesheet" href="styles/reset.css">
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVkNm3L6A_KX5GJ5qWrHserDZ4iny-ckY&language=fr&region=CA"></script>
@@ -17,24 +18,27 @@
     <body>
         <div id="panel">
             <!--[if lt IE 9]>
-            <p class="browsehappy">Votre fureteur est <strong>trop vieux</strong> pour voir cette carte. Pour faire l'expérience de ce site, vous devrez d'abord <a href="http://browsehappy.com/">mettre votre fureteur à jour</a>.</p>
+            <p class="browsehappy col-md-12">Votre fureteur est <strong>trop vieux</strong> pour voir cette carte. Pour faire l'expérience de ce site, vous devrez d'abord <a href="http://browsehappy.com/">mettre votre fureteur à jour</a>.</p>
             <![endif]-->
-            <div class="title">
-                <h1>Les forages au Québec</h1>
-                <h2>Carte animée des forages actifs par année au Québec de 1860 à 2013.</h2>
+            <div class="col-md-12">
+                <a href="http://alexandregregoire.com/labo/" class="small">&larr; Retourner aux projets</a>
             </div>
-            <div class="info">
-                <div class="left">
-                    <p>Les données proviennent du <a href="http://sigpeg.mrn.gouv.qc.ca/gpg/classes/igpg">Système d'information géoscientifique pétrolier et gazier</a> du Ministère de l'énergie et des ressources naturelles du Québec.</p>
-                </div>
-                <div class="right">
-                    <p>Ce projet se base sur <a href="http://jhroy.ca/2013/04/960-forages/">un dossier assemblé par Jean-Hugues Roy en 2013</a>.</p>
-                    <p>Fait par <a href="http://alexandregregoire.com">Alexandre Grégoire</a>. Lire mon <a href="#">billet à propos de ce projet</a>.</p>
+            <div class="col-md-4">
+                <div class="title">
+                    <h1>Les forages au Québec</h1>
+                    <p>Carte animée des forages actifs par année au Québec de&nbsp;1860&nbsp;à&nbsp;2013.</p>
                 </div>
             </div>
-            <div class="control">
-                <div id="clock"></div>
-                <div id="slider"></div>
+            <div class="info col-md-4">
+                <p>Les données proviennent du <a href="http://sigpeg.mrn.gouv.qc.ca/gpg/classes/igpg">Système d'information géoscientifique pétrolier et gazier</a> du <a href="https://www.mern.gouv.qc.ca">Ministère de l'énergie et des ressources naturelles du Québec</a>.</p>
+            </div>
+            <div class="colophon col-md-4">
+                <p>Ce projet se base sur <a href="http://jhroy.ca/2013/04/960-forages/">un dossier assemblé par Jean-Hugues Roy en 2013</a>.</p>
+                <p>Réalisé par <a href="http://alexandregregoire.com">Alexandre Grégoire</a> (<a href="http://twitter.com/agregoire">@agregoire</a>).<br/>Lire mon <a href="#">billet à propos de ce projet</a>.</p>
+            </div>
+            <div class="control col-md-12">
+                <div id="clock" class="col-md-2"></div>
+                <div id="slider" class="col-md-10"></div>
             </div>
         </div>
         <div id="map-canvas"></div>
